@@ -8,19 +8,19 @@ import java.util.*;
  * This class will handle calculation.
  *
  */
-public class Calc {
+public class Calculator {
 
 	public static void main(String args[]) {
-		int num1;
-		int num2;
+		int first_number;
+		int second_number;
 		
 		Scanner s=new Scanner(System.in);
 		
-		System.out.println("Enter the value for num1");
-		num1=s.nextInt();
+		System.out.println("Enter the value for first number:");
+		first_number=s.nextInt();
 		
-		System.out.println("Enter the value for num2");
-		num2=s.nextInt();
+		System.out.println("Enter the value for second number:");
+		second_number=s.nextInt();
 		
 		System.out.println("Which operation do you want to perform?");
 		System.out.println("1 - Addition");
@@ -30,39 +30,35 @@ public class Calc {
 		
 		int op=s.nextInt();
 		
-		CalcFunctions cf = new CalcFunctions();
+		CalculatorFunctions cf = new CalculatorFunctions();
 		
-		if(op==1) {
-			int additionresult = cf.add(num1, num2);
+		if (op==1) {
+			Double additionresult = cf.addition(first_number, second_number);
 			System.out.println("Addition Result is "+additionresult);
 		}
 		
-		else if(op==2) {
-			int subtractionresult = cf.sub(num1, num2);
+		else if (op==2) {
+			Double subtractionresult = cf.subtraction(first_number, second_number);
 			System.out.println("Subtraction Result is "+subtractionresult);
 		}
 		
-		else if(op==3) {
-			int multiplicationresult = cf.mul(num1, num2);
+		else if (op==3) {
+			Double multiplicationresult = cf.multiplication(first_number, second_number);
 			System.out.println("Multiplication Result is "+multiplicationresult);
 		}
 		
-		else if(op==4) {
-			int divisionresult = cf.div(num1, num2);
+		else if (op==4) {
+			Double divisionresult = cf.division(first_number, second_number);
 			
-			if(divisionresult == 0) {
+			if (divisionresult == null) {
 				
 				System.out.println("Division by 0 is not possible.");
-			}
-			
-			else {
+			} else {
 				
 				System.out.println("Division Result is "+divisionresult);
 				
 			}
-		}
-		
-		else {
+		} else {
 			System.out.println("Please select correct input!");
 		}
 			
