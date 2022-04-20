@@ -12,8 +12,8 @@ public class CalculatorFunctions {
 	 * @param secondNum This is the value of the second number.
 	 * @return
 	 */ 
-	public Double addition(int firstNum, int secondNum) {
-		return Double.valueOf(firstNum+secondNum);
+	public Double addition(Double firstNum, Double secondNum) {
+		return (firstNum+secondNum);
 	}
 	
 	/**
@@ -22,9 +22,8 @@ public class CalculatorFunctions {
 	 * @param secondNum This is the value of the second number.
 	 * @return
 	 */
-	public Double subtraction(int firstNum, int secondNum) {
-
-			return Double.valueOf(firstNum-secondNum);
+	public Double subtraction(Double firstNum, Double secondNum) {
+		return (firstNum-secondNum);
 	}
 	
 	/**
@@ -33,11 +32,8 @@ public class CalculatorFunctions {
 	 * @param secondNum This is the value of the second number.
 	 * @return
 	 */
-	public Double multiplication(int firstNum, int secondNum) {
-		
-		Double firstnumDouble = Double.valueOf(firstNum);
-		Double secondnumDouble = Double.valueOf(secondNum);
-		return Double.valueOf(firstnumDouble*secondnumDouble);
+	public Double multiplication(Double firstNum, Double secondNum) {
+		return (firstNum*secondNum);
 	}
 	
 	/**
@@ -46,14 +42,11 @@ public class CalculatorFunctions {
 	 * @param secondNum This is the value of the second number.
 	 * @return
 	 */
-	public Double division(int firstNum, int secondNum) {
-		
+	public Double division(Double firstNum, Double secondNum) {
 		if(secondNum == 0) {
 			return null;
 		} else {
-			Double firstnumDouble = Double.valueOf(firstNum);
-			Double secondnumDouble = Double.valueOf(secondNum);
-			return (firstnumDouble/secondnumDouble);
+			return (firstNum/secondNum);
 		}
 	}
 	

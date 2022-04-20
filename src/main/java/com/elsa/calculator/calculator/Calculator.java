@@ -10,45 +10,27 @@ import java.util.*;
  */
 public class Calculator {
 
-	public static void main(String args[]) {
-		int first_number;
-		int second_number;
-		
-		Scanner s=new Scanner(System.in);
-		
-		System.out.println("Enter the value for first number:");
-		first_number=s.nextInt();
-		
-		System.out.println("Enter the value for second number:");
-		second_number=s.nextInt();
-		
-		System.out.println("Which operation do you want to perform?");
-		System.out.println("1 - Addition");
-		System.out.println("2 - Subtraction");
-		System.out.println("3 - Multiplication");
-		System.out.println("4 - Division");
-		
-		int op=s.nextInt();
+public static void process(Double firstNumber, Double secondNumber, int op) {
 		
 		CalculatorFunctions cf = new CalculatorFunctions();
 		
 		if (op==1) {
-			Double additionresult = cf.addition(first_number, second_number);
+			Double additionresult = cf.addition(firstNumber, secondNumber);
 			System.out.println("Addition Result is "+additionresult);
 		}
 		
 		else if (op==2) {
-			Double subtractionresult = cf.subtraction(first_number, second_number);
+			Double subtractionresult = cf.subtraction(firstNumber, secondNumber);
 			System.out.println("Subtraction Result is "+subtractionresult);
 		}
 		
 		else if (op==3) {
-			Double multiplicationresult = cf.multiplication(first_number, second_number);
+			Double multiplicationresult = cf.multiplication(firstNumber, secondNumber);
 			System.out.println("Multiplication Result is "+multiplicationresult);
 		}
 		
 		else if (op==4) {
-			Double divisionresult = cf.division(first_number, second_number);
+			Double divisionresult = cf.division(firstNumber, secondNumber);
 			
 			if (divisionresult == null) {
 				
