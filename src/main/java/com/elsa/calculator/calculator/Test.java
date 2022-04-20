@@ -6,7 +6,7 @@ public class Test {
 	public static void main(String args[]) {
 		Scanner s=new Scanner(System.in);
 		
-		System.out.println("Enter the value for first number:");
+		/*System.out.println("Enter the value for first number:");
 		Double firstNumber=s.nextDouble();
 		
 		System.out.println("Enter the value for second number:");
@@ -18,8 +18,14 @@ public class Test {
 		System.out.println("3 - Multiplication");
 		System.out.println("4 - Division");
 		
-		int op=s.nextInt();
+		int op=s.nextInt();*/
 		
-		Calculator.process(firstNumber, secondNumber, op);
+		String charactersymbol="";
+		
+		System.out.println("Enter the line that has to be calculated");
+		charactersymbol=s.nextLine();
+		
+		CheckForFunction.arithmeticfunctions(charactersymbol);
+		//Calculator.process(firstNumber, secondNumber, op);
 	}
 }
