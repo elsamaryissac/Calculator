@@ -1,46 +1,46 @@
 package com.elsa.calculator.calculator;
 
 public class ResultCalculation {
-	public static void arithmeticresultcalculation(Double[] values, int sizeofarray, char charsymbol) {
-        Double additionresult = 0.0;
-        Double subtractionresult = 0.0;
-        Double multiplicationresult = 1.0;
-        Double divisionresult = 1.0;
-        
+	public static Double arithmeticresultcalculation(Double[] values, char charsymbol) {
+        Double result = 0.0;
+        int sizeofarray = values.length;
         if (charsymbol == '+') {
             for (int j = 0; j < sizeofarray; ++j) {
-                additionresult += values[j];
+            	result += values[j];
             }
-            System.out.println("Addition Result is " + additionresult);
-        }
-        else if (charsymbol == '-') {
-            for (int j = 0; j < (sizeofarray-(sizeofarray-1)); ++j) {
-                subtractionresult = values[j];
-                for (int k = j + 1; k < sizeofarray; ++k) {
-                    subtractionresult -= values[k];
-                }
-                System.out.println("Subtraction Result is " + subtractionresult);
-            }
+            System.out.println("Addition Result is " + result);
+        } else if (charsymbol == '-') {
+        	Double start = values[0];
+        	for(int i = 1; i<values.length; i++) {
+        		start = start - values[i];
+        	}
+        	result = start;
+        	System.out.println("Subtraction Result is " + result);
         }
         else if (charsymbol == '*') {
-            for (int j = 0; j < sizeofarray; ++j) {
-                multiplicationresult *= values[j];
+        	Double start = values[0];
+            for (int j = 1; j < values.length; j++) {
+            	start = start * values[j];
             }
-            System.out.println("Multiplication Result is " + multiplicationresult);
+            result = start;
+            System.out.println("Multiplication Result is " + result);
         }
         else if (charsymbol == '/') {
-            for (int j = 0; j < sizeofarray; ++j) {
-                divisionresult = values[j];
-                for (int k = j + 1; k < sizeofarray; ++k) {
-                    divisionresult /= values[k];
-                    if (values[k] == 0.0) {
-                        System.out.println("Division by 0 is not possible");
-                    }
-                    else {
-                        System.out.println("Division Result is " + divisionresult);
-                    }
-                }
-            }
+        	Double start = values[0];
+        	for(int i = 1; i<values.length; i++) {
+        		if(values[i] == 0) {
+        			start = null;
+        		} else {
+        			start = start / values[i];
+        		}
+        	}
+        	result = start;
+        	if(start == null) {
+        		System.out.println("Division by 0 is not possible");
+        	} else {
+        	System.out.println("Division Result is " + result);
+        	}
         }
+        return result;
     }
 }

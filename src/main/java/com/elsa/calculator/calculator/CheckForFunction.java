@@ -2,54 +2,38 @@ package com.elsa.calculator.calculator;
 
 public class CheckForFunction {
 
-	public static void arithmeticfunctions(String calculationline) {
+	public Double arithmeticfunctions(String calculationline) {
         
 		char symboltobecalculated = ' ';
-        int size = 0;
-        Double[] arr = new Double[4];
-        char[] characterarray = calculationline.toCharArray();
-        char[] array;
-        
-        for (int length = (array = characterarray).length, j = 0; j < length; ++j) {
-            char characterarray2 = array[j];
-            
-            if (characterarray2 == '+') {
-                String[] str = calculationline.split("\\+");
-                size = str.length;
-                arr = new Double[size];
-                for (int i = 0; i < size; ++i) {
-                    arr[i] = Double.parseDouble(str[i]);
-                }
+        Double[] arr = null;
+         
+            if (isOperation(calculationline,"+")) {
+            	arr=getArray(calculationline,"\\+");
                 symboltobecalculated = '+';
-            }
-            else if (characterarray2 == '-') {
-                String[] str = calculationline.split("\\-");
-                size = str.length;
-                arr = new Double[size];
-                for (int i = 0; i < size; ++i) {
-                    arr[i] = Double.parseDouble(str[i]);
-                }
+            } else if (isOperation(calculationline,"-")) {
+                arr=getArray(calculationline,"\\-");
                 symboltobecalculated = '-';
-            }
-            else if (characterarray2 == '*') {
-                String[] str = calculationline.split("\\*");
-                size = str.length;
-                arr = new Double[size];
-                for (int i = 0; i < size; ++i) {
-                    arr[i] = Double.parseDouble(str[i]);
-                }
+            } else if (isOperation(calculationline,"*")) {
+            	arr=getArray(calculationline,"\\*");
                 symboltobecalculated = '*';
-            }
-            else if (characterarray2 == '/') {
-                String[] str = calculationline.split("\\/");
-                size = str.length;
-                arr = new Double[size];
-                for (int i = 0; i < size; ++i) {
-                    arr[i] = Double.parseDouble(str[i]);
-                }
+            } else if (isOperation(calculationline,"/")) {
+            	arr=getArray(calculationline,"\\/");
                 symboltobecalculated = '/';
             }
-        }
-        ResultCalculation.arithmeticresultcalculation(arr, size, symboltobecalculated);
+            return ResultCalculation.arithmeticresultcalculation(arr, symboltobecalculated);
     }
+	
+	private static Double[] getArray(String calculationline, String operation) {
+		
+		 String[] str = calculationline.split(operation);
+         Double[] arr = new Double[str.length];
+         for (int i = 0; i < str.length; ++i) {
+             arr[i] = Double.parseDouble(str[i]);
+         }
+         return arr;
+	}
+	
+	private static boolean isOperation(String calculationline, String operation) {
+		return calculationline.contains(operation);
+	}
 }
